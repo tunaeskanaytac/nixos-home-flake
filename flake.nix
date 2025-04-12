@@ -17,8 +17,18 @@
       nixos = {
         configuration = "${self}" + "/nixos/configuration.nix";
       };
-      home-manager = {
-        home = "${self}" + "/home-manager/home.nix";
+      home-manager = rec {
+        root = "${self}" + "/home-manager";
+        home = "${root}" + "/home.nix";
+	modules = rec {
+	  mroot = "${root}" + "/modules";
+          files = "${mroot}" + "/files";
+	  packages = "${mroot}" + "/packages";
+	};
+      };
+      dotfiles = rec {
+        root = "${self}" + "/dotfiles";
+	sway = "${root}" + "/sway";
       };
     };
   in
@@ -36,6 +46,9 @@
           home-manager.useGlobalPkgs = true;
 	  home-manager.useUserPackages = true;
 	  home-manager.users.xenonfandangon = filepaths.home-manager.home;
+	  home-manager.extraSpecialArgs = {
+            inherit filepaths;
+	  };
 	}
       ];
     };
