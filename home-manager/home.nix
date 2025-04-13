@@ -16,8 +16,8 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   imports = [
-    filepaths.home-manager.modules.packages
-    filepaths.home-manager.modules.config
+    ./modules/packages
+    ./modules/files
   ];
 
 

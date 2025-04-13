@@ -17,18 +17,13 @@
       nixos = {
         configuration = "${self}" + "/nixos/configuration.nix";
       };
-      home-manager = rec {
-        root = "${self}" + "/home-manager";
-        home = "${root}" + "/home.nix";
-	modules = rec {
-	  mroot = "${root}" + "/modules";
-          files = "${mroot}" + "/files";
-	  packages = "${mroot}" + "/packages";
-	};
+      home-manager = {
+        home = "${self}" + "/home-manager/home.nix";
       };
       dotfiles = rec {
         root = "${self}" + "/dotfiles";
 	sway = "${root}" + "/sway";
+	nvim = "${root}" + "/nvim";
       };
     };
   in
