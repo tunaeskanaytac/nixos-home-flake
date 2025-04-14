@@ -3,6 +3,7 @@
   pkgs,
   test,
   filepaths,
+  lib,
   ...
 }:
 {
@@ -19,6 +20,17 @@
 
   programs.neovim = import ./neovim {
     inherit filepaths;
+    inherit pkgs;
+  };
+
+  wayland.windowManager.sway = import ./sway {
+    inherit pkgs;
+	inherit filepaths;
+	inherit lib;
+	inherit config;
+  };
+
+  programs.kitty = import ./kitty {
     inherit pkgs;
   };
 }

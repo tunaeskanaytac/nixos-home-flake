@@ -22,8 +22,9 @@
       };
       dotfiles = rec {
         root = "${self}" + "/dotfiles";
-	sway = "${root}" + "/sway";
-	nvim = "${root}" + "/nvim";
+	    sway = "${root}" + "/sway";
+    	nvim = "${root}" + "/nvim";
+		alejandra = "${root}" + "/alejandra";
       };
     };
   in

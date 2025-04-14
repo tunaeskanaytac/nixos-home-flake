@@ -14,9 +14,14 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-    ".config/sway/" = {
-      source = config.lib.file.mkOutOfStoreSymlink filepaths.dotfiles.sway;
-      recursive = true;
-    };
+    # ".config/sway/" = {
+    #   source = config.lib.file.mkOutOfStoreSymlink filepaths.dotfiles.sway;
+    #   recursive = true;
+    # };
+
+	".config/alejandra/" = {
+	  source = config.lib.file.mkOutOfStoreSymlink filepaths.dotfiles.alejandra;
+	  recursive = true;
+	};
   };
 }
