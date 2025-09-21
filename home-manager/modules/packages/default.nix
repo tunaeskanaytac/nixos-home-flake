@@ -33,4 +33,8 @@
   programs.kitty = import ./kitty {
     inherit pkgs;
   };
+
+  programs.bash = import ./bash {
+  
+  };
 }

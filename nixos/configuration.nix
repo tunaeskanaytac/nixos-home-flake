@@ -57,7 +57,6 @@
     isNormalUser = true;
     description = "Tuna";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
   };
 
   # Allow unfree packages
@@ -73,6 +72,8 @@
     ntfs3g
   ];
 
+  programs.dconf.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -84,7 +85,39 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+  services.greetd = {
+    enable = true;
+	vt = 1;
+	settings = {
+	  default_session = {
+		command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --user-menu --time --cmd \"sway --unsupported-gpu\"";
+		user = "greeter";
+	  };
+	};
+  };
+  services.supergfxd.enable = true;
+  services.asusd = {
+    enable = true;
+	enableUserService = true;
+  };
+
+  services.gvfs.enable = true;
+
+
+  security.polkit.enable = true;
+  security.soteria.enable = true;
+  # environment.etc."greetd/environments".text = ''
+  #   sway
+  #   bash
+  # '';
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -100,4 +133,10 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
+  xdg.portal.wlr.enable = true;
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-gtk
+	kdePackages.xdg-desktop-portal-kde
+  ];
+  xdg.portal.config.common.default = "*";
 }

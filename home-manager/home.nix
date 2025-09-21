@@ -40,4 +40,21 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+  gtk.font = {
+    name = "RobotoMono";
+	package = pkgs.nerd-fonts.roboto-mono;
+  };
+  gtk.enable = true;
+  gtk.theme = {
+    name = "Colloid-Dark";
+	package = pkgs.colloid-gtk-theme;
+    # name = "Materia-dark";
+	# package = pkgs.materia-theme;
+  };
+  gtk.iconTheme = {
+	# name = "Adwaita";
+	# package = pkgs.adwaita-icon-theme;
+    name = "Colloid-Dark";
+	package = pkgs.colloid-icon-theme;
+  };
 }

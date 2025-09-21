@@ -20,10 +20,25 @@ let
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
     (pkgs.writeShellScriptBin "my-hello" ''
-      echo "Hello, ${config.home.username}! and ${filepaths.dotfiles.root}"
+      echo "Hello, ${config.home.username}! and ${filepaths.dotfiles.root}\n"
     '')
     
 	git
+
+	grim
+
+    xfce.thunar
+	xfce.thunar-volman
+	xfce.thunar-vcs-plugin
+	xfce.thunar-archive-plugin
+	xfce.thunar-media-tags-plugin
+	mate.engrampa
+	ffmpegthumbnailer
+	xfce.tumbler
+	xfce.exo
+	xfce.xfce4-settings
+
+	alsa-utils
   ];
 in
 pkgs-list
