@@ -22,6 +22,9 @@ in
 	    scale = "1";
 	    mode = "1920x1080@144.03Hz";
 	  };
+	  "Samsung Electric Company LS24AG32x H9JWB02025   " = {
+        transform = "270";
+	  };
 	};
 
 	input = {
