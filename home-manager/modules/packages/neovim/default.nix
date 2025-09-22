@@ -52,6 +52,7 @@ in
     lua-language-server
     nixd
     omnisharp-roslyn
+	pyright
 
     nixfmt-rfc-style
 

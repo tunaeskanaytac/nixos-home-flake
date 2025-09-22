@@ -49,6 +49,9 @@ require 'lspconfig'.lua_ls.setup {
 require 'lspconfig'.nixd.setup {
 	capabilities = capabilities
 }
+require 'lspconfig'.pyright.setup {
+	capabilities = capabilities
+}
 
 local handle = io.popen("which OmniSharp")
 local omniSharpDLLDir
