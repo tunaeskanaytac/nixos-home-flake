@@ -52,9 +52,11 @@ in
     lua-language-server
     nixd
     omnisharp-roslyn
-	pyright
+    pyright
 
     nixfmt-rfc-style
+    ruff
+    black
 
     dotnet-sdk
     mono
